@@ -36,7 +36,7 @@ questions = [
             "emocao": -2,
             "solidao": 2,
             "ordem": 1,
-            "caos": -1, 
+            "caos": -1,
         }
     },
     {
@@ -66,7 +66,7 @@ questions = [
             "emocao": -2,
             "solidao": 2,
             "ordem": 1,
-            "caos": -1, 
+            "caos": -1,
         }
     },
     {
@@ -136,7 +136,7 @@ questions = [
             "emocao": -2,
             "solidao": 2,
             "ordem": 1,
-            "caos": -1, 
+            "caos": -1,
         }
     },
     {
@@ -166,7 +166,7 @@ questions = [
             "emocao": -2,
             "solidao": 2,
             "ordem": 1,
-            "caos": -1, 
+            "caos": -1,
         }
     },
     {
@@ -176,7 +176,7 @@ questions = [
             "emocao": -2,
             "solidao": 2,
             "ordem": 1,
-            "caos": -1, 
+            "caos": -1,
         }
     },
     {

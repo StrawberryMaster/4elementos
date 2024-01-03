@@ -24,7 +24,9 @@
 }
 
 @keyframes sangue-animation {
-	50% { filter: drop-shadow(8px 8px 10px rgb(245, 57, 57)); }
+    50% {
+        filter: drop-shadow(8px 8px 10px rgb(245, 57, 57));
+    }
 }
 
 .ConhecimentoResult {
@@ -32,7 +34,9 @@
 }
 
 @keyframes conhecimento-animation {
-	50% { filter: drop-shadow(8px 8px 10px rgb(242, 210, 29)); }
+    50% {
+        filter: drop-shadow(8px 8px 10px rgb(242, 210, 29));
+    }
 }
 
 .EnergiaResult {
@@ -40,7 +44,9 @@
 }
 
 @keyframes energia-animation {
-	50% { filter: drop-shadow(8px 8px 10px rgb(169, 94, 255)); }
+    50% {
+        filter: drop-shadow(8px 8px 10px rgb(169, 94, 255));
+    }
 }
 
 .MorteResult {
@@ -48,7 +54,9 @@
 }
 
 @keyframes morte-animation {
-	50% { filter: drop-shadow(8px 8px 10px rgb(152, 148, 174)); }
+    50% {
+        filter: drop-shadow(8px 8px 10px rgb(152, 148, 174));
+    }
 }
 
 .MedoResult {
@@ -56,5 +64,7 @@
 }
 
 @keyframes medo-animation {
-	50% { filter: drop-shadow(8px 8px 10px rgb(76, 118, 255)); }
+    50% {
+        filter: drop-shadow(8px 8px 10px rgb(76, 118, 255));
+    }
 }

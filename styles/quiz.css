@@ -9,8 +9,8 @@ h2 {
 }
 
 p {
-    text-align:justify;  
-    text-justify:inter-word;
+    text-align: justify;
+    text-justify: inter-word;
     margin: 5px;
 }
 
@@ -39,8 +39,14 @@ p {
     padding: 15px;
 }
 
-#b1, #b2, #b3, #b4, #b5, .previous, .sendButton {
-    background-color: black; 
+#b1,
+#b2,
+#b3,
+#b4,
+#b5,
+.previous,
+.sendButton {
+    background-color: black;
     border: 2px solid white;
     width: 300px;
     color: white;
@@ -54,13 +60,19 @@ p {
     cursor: pointer;
 }
 
-#b1:hover, #b2:hover, #b3:hover, #b4:hover, #b5:hover, .previous:hover, .sendButton:hover {
+#b1:hover,
+#b2:hover,
+#b3:hover,
+#b4:hover,
+#b5:hover,
+.previous:hover,
+.sendButton:hover {
     background-color: white;
     color: black;
 }
 
 .inputName {
-    background-color: black; 
+    background-color: black;
     border: 2px solid white;
     width: 300px;
     color: white;
@@ -89,8 +101,14 @@ p {
         margin-top: 20px;
     }
 
-    #b1, #b2, #b3, #b4, #b5, .previous, .sendButton {
-        background-color: black; 
+    #b1,
+    #b2,
+    #b3,
+    #b4,
+    #b5,
+    .previous,
+    .sendButton {
+        background-color: black;
         border: 2px solid white;
         width: 90%;
         color: white;
@@ -104,13 +122,19 @@ p {
         cursor: pointer;
     }
 
-    #b1:active, #b2:active, #b3:active, #b4:active, #b5:active, .previous:active, .sendButton:active {
+    #b1:active,
+    #b2:active,
+    #b3:active,
+    #b4:active,
+    #b5:active,
+    .previous:active,
+    .sendButton:active {
         background-color: white;
         color: black;
     }
-  }
+}
 
-  @media only screen and (max-width: 690px) {
+@media only screen and (max-width: 690px) {
     h3 {
         margin-top: 20px;
         font-size: 16px;
@@ -118,7 +142,7 @@ p {
 
     p {
         font-size: 16px;
-        text-align: justify;  
+        text-align: justify;
         text-justify: newspaper;
         margin: 2px;
     }
@@ -135,8 +159,14 @@ p {
         margin-top: 20px;
     }
 
-    #b1, #b2, #b3, #b4, #b5, .previous, .sendButton {
-        background-color: black; 
+    #b1,
+    #b2,
+    #b3,
+    #b4,
+    #b5,
+    .previous,
+    .sendButton {
+        background-color: black;
         border: 2px solid white;
         width: 90%;
         color: white;
@@ -150,7 +180,13 @@ p {
         cursor: pointer;
     }
 
-    #b1:active, #b2:active, #b3:active, #b4:active, #b5:active, .previous:active, .sendButton:active {
+    #b1:active,
+    #b2:active,
+    #b3:active,
+    #b4:active,
+    #b5:active,
+    .previous:active,
+    .sendButton:active {
         background-color: white;
         color: black;
     }
@@ -164,7 +200,7 @@ p {
     }
 
     .inputName {
-        background-color: black; 
+        background-color: black;
         border: 2px solid white;
         width: 70%;
         color: white;
@@ -175,4 +211,4 @@ p {
         margin-top: 25px;
         margin-bottom: 25px;
     }
-  }
+}

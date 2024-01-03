@@ -27,14 +27,14 @@ h3 {
 }
 
 p {
-    text-align:justify;  
-    text-justify:inter-word;
+    text-align: justify;
+    text-justify: inter-word;
     margin: 5px;
 }
 
 .centerP {
     margin-top: 10px;
-    text-align: center;  
+    text-align: center;
     text-justify: none;
     margin: none;
 }
@@ -52,7 +52,7 @@ img:hover {
 }
 
 button {
-    background-color: black; 
+    background-color: black;
     border: 2px solid white;
     color: white;
     padding: 10px 28px;
@@ -93,7 +93,7 @@ button:hover {
     filter: drop-shadow(4px 4px 10px gray);
 }
 
-.imgSocial:hover{
+.imgSocial:hover {
     transition-duration: 200ms;
     transform: translateY(-0.2rem);
 }
@@ -109,7 +109,7 @@ button:hover {
 }
 
 .espectroValue {
-    text-align: center;  
+    text-align: center;
     text-justify: none;
     margin: 0;
 }
@@ -128,7 +128,7 @@ button:hover {
         text-align: center;
         color: white;
     }
-    
+
     h3 {
         margin-top: 20px;
         font-size: 16px;
@@ -136,7 +136,7 @@ button:hover {
 
     p {
         font-size: 14px;
-        text-align: justify;  
+        text-align: justify;
         text-justify: newspaper;
         margin: 2px;
     }
@@ -146,11 +146,11 @@ button:hover {
         height: 80px;
         filter: drop-shadow(8px 8px 10px gray);
     }
-    
+
     .imgSocial {
         margin-top: 40px;
         width: 40px;
         height: 40px;
         filter: drop-shadow(4px 4px 10px gray);
     }
-  }
+}
