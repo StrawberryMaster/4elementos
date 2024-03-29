@@ -26,30 +26,30 @@ function showResults() {
     const spectroString = localStorage.getItem("espectro");
     const spectroArray = spectroString.split(',');
 
-    // Set agent name
+    // Nome do agente
     if (results === "Medo") {
         document.getElementById("agentName").innerHTML = `Criatura Desconhecida`;
     } else {
         document.getElementById("agentName").innerHTML = name ? `Agente ${name}` : 'Agente Desconhecido';
     }
 
-    // Set image source and class
+    // Imagem do elemento
     img.src = `images/elementos/${results}.webp`;
     img.classList.add(`${results}Result`);
 
-    // Set user guide and description
+    // Valores dos elementos
     const elementInfo = elements[results] || elements.Medo;
     document.getElementById("elementResultName").innerHTML = results;
     document.getElementById("fraseGuia").innerHTML = `"${elementInfo.fraseGuia}"`;
     document.getElementById("descElement").innerHTML = elementInfo.desc;
 
-    // Set other element information
+    // Valores dos agentes
     const otherElementInfo = elementInfo.outrasInfo.agts;
     document.getElementById("known1").innerHTML = `${otherElementInfo.agt_1}`;
     document.getElementById("known2").innerHTML = `${otherElementInfo.agt_2}`;
     document.getElementById("known3").innerHTML = `${otherElementInfo.agt_3}`;
 
-    // Set spectro values
+    // Valores do espectro
     document.getElementById("emocValue").innerHTML = `${spectroArray[0]}%`;
     document.getElementById("soliValue").innerHTML = `${spectroArray[1]}%`;
     document.getElementById("ordeValue").innerHTML = `${spectroArray[2]}%`;
