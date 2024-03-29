@@ -9,26 +9,25 @@ let result = {
     caos: 1,
 }
 
-let questionsObject = new Object();
-questions.forEach(populateQO);
+const questionsObject = {};
+questions.forEach(value => questionsObject[value['id']] = value);
 
-function populateQO(value) {
-    questionsObject[value['id']] = value
-}
-
-let questionsOrder = Object.keys(questionsObject);
-shuffleArray(questionsOrder);
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-}
+const questionsOrder = [...Object.keys(questionsObject)];
+questionsOrder.sort(() => Math.random() - 0.5);
 
 init_question();
 
-function init_question() {
-    document.getElementById("question").innerHTML = `#${qn + 1} | ${questionsObject[questionsOrder[qn]].question}`;
+function initQuestion() {
+    const currentQuestion = questionsObject[questionsOrder[qn]];
+    document.getElementById("question").innerHTML = `#${qn + 1} | ${currentQuestion.question}`;
+}
+
+function updateResult(answer, effectMultiplier = 1) {
+    const currentQuestion = questionsObject[questionsOrder[qn]].effect;
+    result.emocao += currentQuestion.emocao * answer * effectMultiplier;
+    result.solidao += currentQuestion.solidao * answer * effectMultiplier;
+    result.ordem += currentQuestion.ordem * answer * effectMultiplier;
+    result.caos += currentQuestion.caos * answer * effectMultiplier;
 }
 
 function next(answer) {
@@ -36,21 +35,15 @@ function next(answer) {
         return;
     }
 
-    answers[questionsOrder[qn]] = answer;
-    result = {
-        emocao: result.emocao += questionsObject[questionsOrder[qn]].effect.emocao * answer,
-        solidao: result.solidao += questionsObject[questionsOrder[qn]].effect.solidao * answer,
-        ordem: result.ordem += questionsObject[questionsOrder[qn]].effect.ordem * answer,
-        caos: result.caos += questionsObject[questionsOrder[qn]].effect.caos * answer,
-    }
+    updateResult(answer);
 
     prev_answer = answer;
     qn++;
 
     if (qn < questionsOrder.length) {
-        init_question();
+        initQuestion();
     } else {
-        lastScreen()
+        lastScreen();
     }
 }
 
@@ -60,16 +53,10 @@ function prev() {
     }
 
     qn--;
-    result = {
-        emocao: result.emocao -= questionsObject[questionsOrder[qn]].effect.emocao * prev_answer,
-        solidao: result.solidao -= questionsObject[questionsOrder[qn]].effect.solidao * prev_answer,
-        ordem: result.ordem -= questionsObject[questionsOrder[qn]].effect.ordem * prev_answer,
-        caos: result.caos -= questionsObject[questionsOrder[qn]].effect.caos * prev_answer,
-    }
+    updateResult(prev_answer, -1);
 
     prev_answer = null;
-    init_question();
-
+    initQuestion();
 }
 
 function lastScreen() {
