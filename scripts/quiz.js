@@ -1,46 +1,45 @@
-let answers = new Object;
-let actualQ = 1;
+let answers = {};
 let qn = 0;
 let prev_answer = null;
-let result = {
+const result = {
     emocao: 1,
     solidao: 1,
     ordem: 1,
     caos: 1,
+};
+
+const questionsObject = questions.reduce((acc, question) => {
+    acc[question.id] = question;
+    return acc;
+}, {});
+
+const questionsOrder = Object.keys(questionsObject);
+for (let i = questionsOrder.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [questionsOrder[i], questionsOrder[j]] = [questionsOrder[j], questionsOrder[i]];
 }
-
-const questionsObject = {};
-questions.forEach(value => questionsObject[value['id']] = value);
-
-const questionsOrder = [...Object.keys(questionsObject)];
-questionsOrder.sort(() => Math.random() - 0.5);
 
 initQuestion();
 
 function initQuestion() {
     const currentQuestion = questionsObject[questionsOrder[qn]];
-    document.getElementById("question").innerHTML = `#${qn + 1} | ${currentQuestion.question}`;
+    document.getElementById("question").textContent = `#${qn + 1} | ${currentQuestion.question}`;
 }
 
 function updateResult(answer, effectMultiplier = 1) {
-    const currentQuestion = questionsObject[questionsOrder[qn]].effect;
-    result.emocao += currentQuestion.emocao * answer * effectMultiplier;
-    result.solidao += currentQuestion.solidao * answer * effectMultiplier;
-    result.ordem += currentQuestion.ordem * answer * effectMultiplier;
-    result.caos += currentQuestion.caos * answer * effectMultiplier;
+    const effects = questionsObject[questionsOrder[qn]].effect;
+    Object.keys(effects).forEach(key => {
+        result[key] += effects[key] * answer * effectMultiplier;
+    });
 }
 
 function next(answer) {
-    if (qn === questionsOrder.length) {
-        return;
-    }
+    if (qn >= questionsOrder.length) return;
 
     updateResult(answer);
-
     prev_answer = answer;
-    qn++;
 
-    if (qn < questionsOrder.length) {
+    if (++qn < questionsOrder.length) {
         initQuestion();
     } else {
         lastScreen();
