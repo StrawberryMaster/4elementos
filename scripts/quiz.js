@@ -15,7 +15,7 @@ questions.forEach(value => questionsObject[value['id']] = value);
 const questionsOrder = [...Object.keys(questionsObject)];
 questionsOrder.sort(() => Math.random() - 0.5);
 
-init_question();
+initQuestion();
 
 function initQuestion() {
     const currentQuestion = questionsObject[questionsOrder[qn]];
