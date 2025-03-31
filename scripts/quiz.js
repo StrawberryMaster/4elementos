@@ -1,4 +1,3 @@
-let answers = {};
 let qn = 0;
 let prev_answer = null;
 const result = {
@@ -8,10 +7,18 @@ const result = {
     caos: 1,
 };
 
-const questionsObject = questions.reduce((acc, question) => {
-    acc[question.id] = question;
-    return acc;
-}, {});
+
+const questionsObject = (() => {
+    try {
+        return questions.reduce((acc, question) => {
+            acc[question.id] = question;
+            return acc;
+        }, {});
+    } catch (e) {
+        console.error("Erro ao carregar as perguntas:", e);
+        return {};
+    }
+})();
 
 const questionsOrder = Object.keys(questionsObject);
 for (let i = questionsOrder.length - 1; i > 0; i--) {
@@ -22,8 +29,14 @@ for (let i = questionsOrder.length - 1; i > 0; i--) {
 initQuestion();
 
 function initQuestion() {
-    const currentQuestion = questionsObject[questionsOrder[qn]];
-    document.getElementById("question").textContent = `#${qn + 1} | ${currentQuestion.question}`;
+    try {
+        const currentQuestion = questionsObject[questionsOrder[qn]];
+        const questionElement = document.getElementById("question");
+        if (!questionElement) throw new Error("Elemento com id 'question' não encontrado");
+        questionElement.textContent = `#${qn + 1} | ${currentQuestion.question}`;
+    } catch (e) {
+        console.error("Erro ao inicializar a pergunta:", e);
+    }
 }
 
 function updateResult(answer, effectMultiplier = 1) {
@@ -47,7 +60,7 @@ function next(answer) {
 }
 
 function prev() {
-    if (prev_answer == null) {
+    if (qn <= 0 || prev_answer == null) {
         return;
     }
 
